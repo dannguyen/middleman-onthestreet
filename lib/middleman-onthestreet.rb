@@ -1,6 +1,7 @@
 # Require core library
 require 'middleman-core'
-require 'helpers/onthestreet_helpers'
+require 'middleman-onthestreet/template'
+require 'middleman-onthestreet/helpers/onthestreet_helpers'
 # Extension namespace
 class OnthestreetExtension < ::Middleman::Extension
   ONTHESTREET_CONFIG = "./_onthestreet.yaml"
@@ -45,3 +46,4 @@ end
 # version of class name
 
 OnthestreetExtension.register(:onthestreet_extension)
+Middleman::Templates.register :slim, Middleman::Onthestreet::Template
