@@ -1,1 +1,1 @@
-require 'middleman-middling'
+require 'middleman-onthestreet'

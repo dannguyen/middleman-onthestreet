@@ -2,12 +2,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "middleman-middling"
+  s.name        = "middleman-onthestreet"
   s.version     = "0.0.1"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Dan Nguyen"]
   s.email       = ["dan@danwin.com"]
-  s.homepage    = "http://example.com"
+  s.homepage    = "http://github.com/dannguyen/onthestreet"
   s.summary     = "Some helpers for Middleman"
   s.description = "Whats up"
 

@@ -1,4 +1,4 @@
-module Middling
+module Onthestreet
   module Helpers
       def page_title
         default_title = config[:site_title]

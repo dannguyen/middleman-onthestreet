@@ -2,7 +2,7 @@
 # the following line to use "http://" instead
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in middleman-middling.gemspec
+# Specify your gem's dependencies in middleman-onthestreet.gemspec
 gemspec
 
 group :development do
