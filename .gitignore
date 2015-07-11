@@ -1,0 +1,6 @@
+# Ignore bundler lock file
+/Gemfile.lock
+
+# Ignore pkg folder
+/pkg
+.DS_Store
