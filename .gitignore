@@ -4,4 +4,4 @@
 # Ignore pkg folder
 /pkg
 .DS_Store
-.gem
+*.gem
