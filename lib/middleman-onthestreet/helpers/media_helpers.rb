@@ -35,7 +35,7 @@ def youtube_tag(url, opts = {})
   # extract youtube thing
   m = url.match(/(?<=v=)[A-z0-9\-]+/)
   youtube_id = m.present? ? m[0] : url
-  embed_url = "https://www.youtube.com/embed/#{youtube_id}"
+  embed_url = "//www.youtube.com/embed/#{youtube_id}"
 
   content_tag(:iframe, "", :src => embed_url,
     :frameborder => opts[:frameborder],
@@ -52,7 +52,7 @@ def vimeo_tag(url, opts = {})
 #  vimeo_id = m.present? ? m[0] : url
  vimeo_id = 36820781
   # "https://player.vimeo.com/video/999999"
-  embed_url = "https://player.vimeo.com/video/#{vimeo_id}"
+  embed_url = "//player.vimeo.com/video/#{vimeo_id}"
 
   content_tag(:iframe, "", :src => embed_url,
     :frameborder => opts[:frameborder],

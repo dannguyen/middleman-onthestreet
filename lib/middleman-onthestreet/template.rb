@@ -9,7 +9,6 @@ module Middleman
         File.join(File.dirname(__FILE__), 'template')
       end
 
-
       def build_scaffold!
         template 'shared/Gemfile.tt', File.join(location, 'Gemfile')
         template 'shared/config.tt', File.join(location, 'config.rb')
