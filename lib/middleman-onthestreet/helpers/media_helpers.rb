@@ -2,7 +2,8 @@
 # that is often a part of Rails-like systems
 # Creates an <img> tag and an optional div.caption tag
 VALID_MEDIA_TYPES = [:youtube, :vimeo, :image]
-def media_tag(url, opts = {})
+def media_tag(url, options = {})
+  opts = options.dup()
   if opts[:media_type].present?
     if VALID_MEDIA_TYPES.any?(opts[:media_type])
       media_type = opts[:media_type]
@@ -24,7 +25,10 @@ def media_tag(url, opts = {})
   content_tag(:div, :class => "mediawrap") do
     s = ActiveSupport::SafeBuffer.new
     s.safe_concat send(tag_foo, url, opts)
-    s.safe_concat media_caption_tag(opts[:caption], opts) if opts[:caption]
+    caption = opts.delete(:caption)
+    if caption
+      s.safe_concat media_caption_tag(caption, opts)
+    end
 
     s
   end
@@ -77,7 +81,7 @@ def media_caption_tag(text = nil, opts = {})
       txt << %Q{ <a class="source" href="#{opts[:source_url]}">#{srcname}</a>}
     end
     mtxt = markdownify(txt)
-    klass = opts[:class].blank? ? "caption media" : "caption media " + opts[:class]
+    klass = opts[:class].blank? ? "caption" : "caption " + opts[:class]
 
     content_tag(:div, mtxt, :class => klass)
   end

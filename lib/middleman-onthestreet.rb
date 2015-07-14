@@ -1,5 +1,6 @@
 # Require core library
 require 'middleman-core'
+
 require 'middleman-onthestreet/template'
 require 'middleman-onthestreet/helpers/onthestreet_helpers'
 # Extension namespace
@@ -17,6 +18,9 @@ class OnthestreetExtension < ::Middleman::Extension
     site_config[:site].each_pair do |att, val|
       app.set :"site_#{att}", val
     end
+
+
+
 
     # set up services
     app.set :services, site_config[:services]

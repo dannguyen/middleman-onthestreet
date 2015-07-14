@@ -1,25 +1,14 @@
+# just a set of conventions
+# e.g. page_title vs. current_page.title
 module Onthestreet
   module Helpers
-    def meta_title
-      default_title = config[:site_title]
-      the_title = ""
-      ptitle = current_page.data.title
-      if ptitle.blank?
-        the_title = default_title
-      else
-        if ptitle != default_title
-          the_title = "#{ptitle} | #{default_title}"
-        else
-          the_title = default_title
-        end
-      end
 
-      return the_title
+    def page_title
+      current_page.data.title
     end
 
-
-    def meta_description
-      current_page.data.description || config[:site_description]
+    def page_description
+      current_page.data.description
     end
 
     def meta_author
@@ -41,5 +30,6 @@ module Onthestreet
     def meta_url
       URI.join site_baseurl, current_page.url
     end
+
   end
 end
