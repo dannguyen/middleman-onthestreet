@@ -27,15 +27,12 @@ module Onthestreet
     end
 
     def meta_image_url
-      if page_image
-        page_image.url
-      else
-        site_image_url
-      end
+      page_image_url || config[:site_image_url]
     end
 
     def meta_image_caption
-      page_image.caption if page_image
+
+      page_image_caption
     end
 
     def meta_url

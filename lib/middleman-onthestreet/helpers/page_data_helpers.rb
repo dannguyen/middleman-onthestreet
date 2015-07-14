@@ -3,31 +3,37 @@
 module Onthestreet
   module Helpers
 
+    # for dynamic pages, we expect the option :dynamic_page has been set
+    def _dynamic_page
+      opts = current_page.metadata[:options]
+
+      return opts[:dynamic_page] || {}
+    end
+
     def page_title
-      current_page.data.title
+      current_page.data.title || _dynamic_page[:title]
     end
 
     def page_description
-      current_page.data.description
+      current_page.data.description || _dynamic_page[:description]
     end
 
-    def meta_author
-      current_page.data.author || config[:site_author]
+    def page_author
+      current_page.data.author || _dynamic_page[:author] ||  config[:site_author]
     end
 
-    def meta_image_url
-      if current_page.data.image
-        current_page.data.image.url
-      else
-        site_image_url
+    def page_image_url
+      img = current_page.data.image || _dynamic_page[:image]
+      if img
+        img.url
       end
     end
 
-    def meta_image_caption
+    def page_image_caption
       current_page.data.image.caption if current_page.data.image
     end
 
-    def meta_url
+    def page_url
       URI.join site_baseurl, current_page.url
     end
 
