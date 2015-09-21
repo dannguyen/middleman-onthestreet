@@ -4,6 +4,20 @@ module Onthestreet
       Kramdown::Document.new(str.to_s).to_html
     end
 
+    # resource has a url and/or title
+    def link_to_resource(obj, opts = {})
+      if obj.is_a?(Hash)
+        obj = ActiveSupport::HashWithIndifferentAccess.new(obj)
+        url = obj[:url]
+        title = obj[:title] || url
+      else
+        url = obj.url
+        title = obj.title || url
+      end
+
+      return link_to(title, url, opts)
+    end
+
 
     # adds bootstrap container div
     def container_tag(tagname = :div, content = nil, opts = {}, &block)
