@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'middleman-core', '~> 3.3', '>= 3.3.12'
 
   # extrastuff
-  s.add_runtime_dependency 'bootstrap-sass', '~> 3.3', '>= 3.3.5'
+#  s.add_runtime_dependency 'bootstrap-sass', '~> 3.3', '>= 3.3.5'
   s.add_runtime_dependency 'chronic', '~>0.10', '>= 0.10.2'
   s.add_runtime_dependency 'middleman-pry', '~>0.0', '>= 0.0.4'
   s.add_runtime_dependency 'middleman-s3_sync', '~>3.0', '>= 3.0.42'
