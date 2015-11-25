@@ -27,7 +27,12 @@ module Onthestreet
     end
 
     def meta_image_url
-      page_image_url || config[:site_image_url]
+      m = page_image_url || config[:site_image_url]
+      if URI.parse(m).relative?
+        return URI.join site_baseurl, m
+      else
+        return m
+      end
     end
 
     def meta_image_caption
