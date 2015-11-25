@@ -25,7 +25,9 @@ module Onthestreet
     def page_image_url
       img = current_page.data.image || _dynamic_page[:image]
       if img
-        img.url
+        return img.url
+      elsif (img_url = current_page.data.image_url || _dynamic_page[:image_url])
+        return img_url
       end
     end
 
